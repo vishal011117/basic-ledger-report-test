@@ -1,0 +1,73 @@
+main  {
+  margin: 82px auto 32px;
+  padding: 0 16px;
+}
+
+.card-title {
+  margin: 0;
+}
+
+.amount-button {
+  border-radius: 3px;
+  background: #f2f6fc;
+
+  .dollar {
+    width: 21px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: yellow;
+    color: orange;
+  }
+  
+  .amount {
+    margin-left: 25px;
+  }
+}
+
+.outer-circle {
+  padding: 15px;
+  border-radius: 50%;
+  top: 20%;
+  left: 20%;
+
+  .inner-circle {
+    width: 21px;
+    text-align: center;
+    border-radius: 50%;
+  }
+}
+
+.balance {
+  background-color: #f9e6f5;
+}
+
+.balance-circle {
+  background-color: #f36ac2;
+  color: #f36ac2;
+}
+
+.credited {
+  background-color: #d5f3e7;
+}
+
+.credited-circle {
+  background-color: #59d3a6; 
+  color: #52d5a1;
+}
+
+.debited {
+  background-color: #f3c0c0;
+}
+
+.debited-circle {
+  background-color: #f14d53;
+  color: #f14d53;
+}
+
+.list-group {
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+
+  .list-group-item {
+    border-bottom: 1px solid #f1efef !important;
+  }
+}

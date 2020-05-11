@@ -1,0 +1,108 @@
+<main role="main">
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-9">
+          <div>
+            <div class="pull-right">
+               <form [formGroup]="form">
+                <select
+                  formControlName="type"
+                  (change)="changeType()" 
+                  class=" font-weight-bold custom-select custom-select-sm"
+                >
+                  <option 
+                    *ngFor="let order of objectKeys(mainService.types);" 
+                    [value]="order"
+                  >
+                    {{order}}
+                  </option>
+                </select>
+              </form> 
+            </div>
+            <h4 class="font-weight-bold mb-3">Ledger</h4>
+          </div>
+          
+          <ul class="list-group">
+            <li class="list-group-item border-0">
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <span class="font-weight-bold">Particulars</span>
+                </div>
+                <div class="col-4 col-sm-2">
+                  <span class="font-weight-bold">Credit</span>
+                </div>
+                <div class="col-4 col-sm-2">
+                  <span class="font-weight-bold">Debit</span>
+                </div>
+                <div class="col-4 col-sm-2">
+                  <span class="font-weight-bold">Balance</span>
+                </div>
+              </div>
+            </li>
+            <li
+              class="list-group-item border-0"
+              *ngFor="let data of list"
+            >
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <p class="font-weight-bold"> {{data.particular}} </p>
+                  <p class="text-muted"> 
+                    <i class="fa fa-clock-o" style="color: #D2D2D4;"></i>
+                    {{data.transaction_date | date:'dd MMM yyyy, hh:mm aaa'}} 
+                  </p>
+                </div>
+                <div class="col-4 col-sm-2 text-success">
+                  <span>{{!data.is_debit ? '+' + data.transaction_amount : '-'}}</span>
+                </div>
+                <div class="col-4 col-sm-2 text-danger">
+                  <span>{{data.is_debit ? '-' + data.transaction_amount : '-'}}</span>
+                </div>
+                <div class="col-4 col-sm-2">
+                  <span class="border border-primary p-2 position-relative amount-button font-weight-bold">
+                    <span class="dollar position-absolute">$</span>
+                    <span class="amount text-primary">
+                      {{data.balance_amount}}
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-3">
+          <div>
+            <h4 class="font-weight-bold mb-3">Balance Info</h4>
+            <div *ngFor="let card of objectKeys(total)">
+              <div class="card mb-3 border-0 {{card}}">
+                <div class="row no-gutters">
+                  <div class="col-3 col-md-3 position-relative">
+                    <div class="outer-circle position-absolute {{card}}-circle">
+                      <div class="inner-circle bg-white"> $ </div>
+                    </div>
+                  </div>
+                  <div class="col-9 col-md-9">
+                    <div class="card-body pl-3">
+                      <h5 class="card-title font-weight-bold">{{total[card]}}</h5>
+                      <p class="card-text">
+                        {{card === 'balance' ? "Available" : "Total"}} {{card}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button 
+                class="btn btn-block btn-primary font-weight-bold text-uppercase" 
+                style="font-size: 14px;"
+              > Spend Token
+              </button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

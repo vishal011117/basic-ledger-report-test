@@ -1,0 +1,30 @@
+.toolbar {
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  padding: 0.1rem 1rem; 
+}
+
+.nav-item {
+  padding: 0rem 1rem;
+}
+
+.dollar-sign {
+  text-align: center;
+  padding: 4px 7px;
+  border-radius: 50%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+}
+a {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+.item-border-left {
+  border-left: 1px solid #7c9cf7;
+}
